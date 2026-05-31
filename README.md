@@ -34,13 +34,18 @@ cp -r * ~/.config/
 | Package | Purpose |
 |---------|---------|
 | `sway` | Window manager |
+| `swaybg` | Desktop background wallpaper |
 | `swayidle` | Idle management (lock screen, screen off) |
 | `swaylock` | Screen locker |
 | `wmenu` | Application launcher (`wmenu-run`) |
 | `playerctl` | Media key bindings |
 | `brightnessctl` | Brightness keys |
-| `grim` | Screenshot utility |
+| `grim` | Screenshot capture |
+| `slurp` | Region selection for cropped screenshots |
+| `wl-clipboard` | Clipboard utilities (`wl-copy`) for screenshots |
+| `wl-clip-persist` | Keeps clipboard content alive after source app closes |
 | `pulseaudio` | Volume keys |
+| `xorg-xwayland` | X11 app compatibility layer |
 
 ### Foot
 
@@ -52,7 +57,7 @@ cp -r * ~/.config/
 ### Arch Linux (all packages)
 
 ```sh
-sudo pacman -S sway swayidle swaylock wmenu foot waybar mpd pulseaudio pavucontrol power-profiles-daemon brightnessctl networkmanager playerctl grim
+sudo pacman -S sway swaybg swayidle swaylock wmenu foot waybar mpd pulseaudio pavucontrol power-profiles-daemon brightnessctl networkmanager playerctl grim slurp wl-clipboard wl-clip-persist xorg-xwayland
 yay -S ttf-jetbrains-mono-nerd ttf-font-awesome
 ```
 
@@ -68,6 +73,8 @@ Sway window manager configuration.
   - Launcher: `wmenu-run`
   - Vim-style direction keys (`h/j/k/l`)
   - Volume/media/brightness/screenshot key bindings
+  - Screenshot: full-screen (`Print`) and region (`Super+Shift+S`) via grim + slurp
+  - Clipboard: `wl-clip-persist` keeps clipboard alive after source closes
   - Idle: lock after 5 min, screen off after 10 min
   - Background: `~/.config/sway/backgrounds/lawliet_background.png`
 

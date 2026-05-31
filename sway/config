@@ -27,6 +27,10 @@ exec swayidle -w \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
 
+# === Clipboard configuration ===
+
+exec wl-clip-persist --clipboard regular
+
 # === Input configuration ===
 
 input "type:touchpad" {
@@ -174,8 +178,13 @@ bindsym --locked XF86AudioStop exec playerctl stop
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-# Special key to take a screenshot with grim
-bindsym Print exec grim
+# Special keys to take a screenshot with grim
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | tee ~/Pictures/screenshot_$(date +'%Y%m%d_%H%M%S').png | wl-copy
+bindsym Print exec grim - | tee ~/Pictures/screenshot_$(date +'%Y%m%d_%H%M%S').png | wl-copy
+
+# -- Special Windows:
+
+for_window [app_id="nmtui_floating"] floating enable, move position center
 
 # -- Status Bar:
 
