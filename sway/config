@@ -182,6 +182,9 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | tee ~/Pictures/screenshot_$(date +'%Y%m%d_%H%M%S').png | wl-copy
 bindsym Print exec grim - | tee ~/Pictures/screenshot_$(date +'%Y%m%d_%H%M%S').png | wl-copy
 
+# Toggle dark/light mode
+bindsym $mod+Shift+d exec ~/.local/bin/toggle-dark-mode.sh
+
 # -- Special Windows:
 
 for_window [app_id="nmtui_floating"] floating enable, move position center

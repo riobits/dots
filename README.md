@@ -9,7 +9,9 @@ Catppuccin Mocha-themed dotfiles for Sway on Linux.
 Copy config directories into place:
 
 ```sh
-cp -r * ~/.config/
+cp -r sway waybar foot ~/.config/
+mkdir -p ~/.local/bin
+cp -r .local/bin/toggle-dark-mode.sh ~/.local/bin/
 ```
 
 ## Required Packages
@@ -46,6 +48,7 @@ cp -r * ~/.config/
 | `wl-clip-persist` | Keeps clipboard content alive after source app closes |
 | `pulseaudio` | Volume keys |
 | `xorg-xwayland` | X11 app compatibility layer |
+| `gnome-themes-extra` | GTK3 Adwaita-dark theme for dark mode toggle |
 
 ### Foot
 
@@ -57,7 +60,7 @@ cp -r * ~/.config/
 ### Arch Linux (all packages)
 
 ```sh
-sudo pacman -S sway swaybg swayidle swaylock wmenu foot waybar mpd pulseaudio pavucontrol power-profiles-daemon brightnessctl networkmanager playerctl grim slurp wl-clipboard wl-clip-persist xorg-xwayland
+sudo pacman -S sway swaybg swayidle swaylock wmenu foot waybar mpd pulseaudio pavucontrol power-profiles-daemon brightnessctl networkmanager playerctl grim slurp wl-clipboard wl-clip-persist xorg-xwayland gnome-themes-extra
 yay -S ttf-jetbrains-mono-nerd ttf-font-awesome
 ```
 
@@ -74,8 +77,9 @@ Sway window manager configuration.
   - Vim-style direction keys (`h/j/k/l`)
   - Volume/media/brightness/screenshot key bindings
   - Screenshot: full-screen (`Print`) and region (`Super+Shift+S`) via grim + slurp
-  - Clipboard: `wl-clip-persist` keeps clipboard alive after source closes
-  - Idle: lock after 5 min, screen off after 10 min
+- Clipboard: `wl-clip-persist` keeps clipboard alive after source closes
+   - Dark/light mode toggle: `Super+Shift+D` via `~/.local/bin/toggle-dark-mode.sh`
+   - Idle: lock after 5 min, screen off after 10 min
   - Background: `~/.config/sway/backgrounds/lawliet_background.png`
 
 ### `waybar/`
@@ -97,3 +101,10 @@ Foot terminal emulator configuration.
 - **`foot.ini`** - Catppuccin Mocha dark/light color schemes, font settings, and key bindings
   - Font: `monospace:size=15`
   - Color themes: Catppuccin Mocha (dark) and Catppuccin Latte (light)
+
+### `.local/bin/`
+
+User scripts.
+
+- **`toggle-dark-mode.sh`** - Toggles between dark and light mode via `gsettings` (bound to `Super+Shift+D` in Sway)
+  - Requires `gnome-themes-extra` for the `Adwaita-dark` GTK3 theme

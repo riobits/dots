@@ -24,7 +24,7 @@
     "battery",
     "clock#calendar",
     "clock#time",
-    "tray",
+"tray",
     "custom/power"
   ],
   "sway/mode": {
