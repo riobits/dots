@@ -49,6 +49,7 @@ cp -r .local/bin/toggle-dark-mode.sh ~/.local/bin/
 | `pulseaudio` | Volume keys |
 | `xorg-xwayland` | X11 app compatibility layer |
 | `gnome-themes-extra` | GTK3 Adwaita-dark theme for dark mode toggle |
+| `mako` | Notification daemon for dark mode toggle |
 
 ### Foot
 
